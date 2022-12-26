@@ -18,7 +18,9 @@ function App() {
       const data = await axios.get('http://localhost:888/accept')
 
 
-      setGraphData(data.data)
+      setAcceptData(data.data)
+      console.log(accept)
+
 
 
   }
@@ -28,7 +30,8 @@ function App() {
     const data = await axios.get('http://localhost:888/denied')
     // console.log(data.data)
 
-    setGraphData(data.data)
+    setDenyData(data.data)
+    console.log(denied)
 
 
 }

@@ -10,7 +10,7 @@ app.use("/accept", (req, res) => {
 
     try {
 
-        fs.readFile('accept.json', 'utf8', (err, data) => {
+        fs.readFile('accepted.json', 'utf8', (err, data) => {
             if (err) {
               console.error(err);
               return;

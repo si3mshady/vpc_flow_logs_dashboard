@@ -12,7 +12,7 @@ export const DemoArea = ({data}) => {
     data,
     color: '#c32aff',
     xField: 'interface_id',
-    yField: '',
+    yField: 'count',
     xAxis: {
       range: [0, 1],
     //   tickCount: 5,
