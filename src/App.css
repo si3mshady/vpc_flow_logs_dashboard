@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    
+    display: grid;
+    margin: auto;
+    height: 50vh;
+    /* width: 80%; */
+    background-color: black;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: (minmax(3,100));
+    grid-gap: 2px;
+
+
+
+
+}
