@@ -1,15 +1,10 @@
 from flowlogs_reader import FlowLogsReader
 import json
+import functools
 
 flow_log_reader = FlowLogsReader('flowlogs-analize')
 
-# print(dir(flow_log_reader))
-
-
-
 values_json = [event.to_dict() for event in list(flow_log_reader)]
-
-
 
 #must covert datetime values into strings otherwise unable to use json dumps
 for value in values_json:
@@ -18,8 +13,7 @@ for value in values_json:
     if value.get('end'):
         value['end'] = value['end'].strftime('%m/%d/%Y')
 
-
-interfaces = set()
+interfaces = set()  #use set because it automatically parses uniqe values from list 
 
 for value in values_json:
   
@@ -30,7 +24,6 @@ interface_list = list(interfaces)
 #######################
 frequency_accept = {}
 frequency_deny = {}
-
 
 for i in interface_list:
     for value in values_json:
@@ -49,7 +42,6 @@ for i in interface_list:
 
 
 accept_list = []
-
 deny_list = []
 
 #the data needs to be modified by adding another key which is needed for the x axis in the react chart
@@ -65,18 +57,16 @@ for key,value in frequency_deny.items():
     new['count'] = value 
     deny_list.append(new)
 
-print(accept_list)
-print(deny_list)
+
+sum_accept = [sum.get('count') for sum in accept_list]
+sum_deny = [sum.get('count') for sum in deny_list]
+
                 
-
+single_metric_accept = functools.reduce(lambda a, b: a + b, sum_accept) #a and b are paramaters for the lambda 
+single_metric_deny = functools.reduce(lambda a, b: a + b, sum_deny ) 
    
-
-
-
-# print(interfaces)
-
-
-
+print(single_metric_accept)
+print(single_metric_deny)
 
 
 with open('server/flowlog_data.json', 'w') as ink:
@@ -88,13 +78,9 @@ with open('server/accepted.json', 'w') as ink:
 with open('server/denied.json', 'w') as ink:
     ink.write(json.dumps(deny_list))
 
+with open('server/single_metric_accept.json', 'w') as ink:
+    ink.write(json.dumps(single_metric_accept))
 
-# #get total count of Accepts and associate with interface
-# #get total cound Rejects 
+with open('server/single_metric_deny.json', 'w') as ink:
+    ink.write(json.dumps(single_metric_deny))
 
-# #need to get a list of all unique interfaces
-# #for each interface need to check if it's a reject or 
-
-# #get total count of accepts in interval 
-
-# #get unique time 

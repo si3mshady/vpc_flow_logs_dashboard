@@ -54,6 +54,56 @@ app.use("/denied", (req, res) => {
 })
 
 
+app.use("/single_denied", (req, res) => {
+
+    
+    try {
+
+        fs.readFile('single_metric_deny.json', 'utf8', (err, data) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            // console.log(data)
+          res.send(data)
+        
+            // console.log(data);
+          });
+        
+    } catch (error) {
+        console.log(error)
+    }
+ 
+  
+})
+
+
+
+app.use("/single_accept", (req, res) => {
+
+    
+    try {
+
+        fs.readFile('single_metric_accept.json', 'utf8', (err, data) => {
+            if (err) {
+              console.error(err);
+              return;
+            }
+            // console.log(data)
+          res.send(data)
+        
+            // console.log(data);
+          });
+        
+    } catch (error) {
+        console.log(error)
+    }
+ 
+  
+})
+
+
+
 
 
 

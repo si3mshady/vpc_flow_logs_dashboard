@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { Area } from '@ant-design/plots';
+import { Column } from '@ant-design/plots';
 
 export const DemoArea = ({data}) => {
 //   const [data, setData] = useState([]);
@@ -24,6 +24,6 @@ export const DemoArea = ({data}) => {
     },
   };
 
-  return <Area  {...config} />;
+  return <Column  style={{backgroundColor:'black'}} {...config} />;
 };
 

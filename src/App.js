@@ -11,6 +11,9 @@ function App() {
 
   const [accept, setAcceptData] = useState([])
   const [denied, setDenyData] = useState([])
+
+  const [single_deny, setSingleDeny] = useState()
+  const [single_accept, setSingleAccept] = useState()
   
 
 
@@ -36,12 +39,34 @@ function App() {
 
 }
 
+const getSingleDeny = async () => {
+  const data = await axios.get('http://localhost:888/single_denied')
+  // console.log(data.data)
+
+  setSingleDeny(data.data)
+  console.log(single_deny)
+
+
+}
+
+const getSingleAccept = async () => {
+  const data = await axios.get('http://localhost:888/single_accept')
+  // console.log(data.data)
+
+  setSingleAccept(data.data)
+  console.log(single_accept)
+
+
+}
+
 
 
   useEffect(() => {
 
     getAcceptData()
     getDenyData()
+    getSingleAccept()
+    getSingleDeny()
 
   },[])
 
@@ -49,16 +74,25 @@ function App() {
   return (
 
     <>
-   <TopBar />
+   {/* <TopBar /> */}
 <div className='container'> 
     
- 
-    <DemoArea data={accept}/>
-    <Count data />
-    <DemoArea data={denied}/>
-    <Count data />
+  <div className='graph'> 
 
-    
+  <DemoArea data={accept}/>
+    <Count data={single_accept} label={"ACCEPT"} />
+  
+
+  </div>
+
+
+  <div className='graph'>
+  <DemoArea data={denied}/>
+    <Count data={single_deny} label={"REJECT"}/>
+
+  </div>
+
+
      </div>
 
      

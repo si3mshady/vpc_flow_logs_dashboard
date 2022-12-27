@@ -1,8 +1,17 @@
 .count_container {
 
-    width: calc(2880px / 4);
-    height: auto;
-    border: 5px solid red;
-    background-color: blue;
-  
+    width: auto;
+    height: 50vh;
+    border: 5px solid purple;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+
+.single_value {
+
+
+
 }
