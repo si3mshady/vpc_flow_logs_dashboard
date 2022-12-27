@@ -18,7 +18,6 @@ interfaces = set()  #use set because it automatically parses uniqe values from l
 for value in values_json:
   
     interfaces.add(value.get('interface_id'))
-
 interface_list = list(interfaces)
 
 #######################
