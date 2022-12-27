@@ -22,7 +22,7 @@
     /* justify-content: space-around; */
     /* align-items: center; */
     height: 50vh;
-    border: 5px solid purple;
+    border: 1px solid purple;
     display: grid;
      /* background-color: black; */
      grid-template-columns: 2fr 1fr;

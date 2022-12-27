@@ -2,16 +2,23 @@
 
     width: auto;
     height: 50vh;
-    border: 5px solid purple;
+    border: 1px solid purple;
     background-color: black;
     display: flex;
     flex-direction: column;
     color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 5rem;
 }
 
 
 .single_value {
 
+
+    font-size: 10rem;
+    color: purple;
 
 
 }

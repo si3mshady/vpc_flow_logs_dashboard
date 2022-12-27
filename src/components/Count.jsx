@@ -8,7 +8,7 @@ export default function Count({data,label}) {
     <h3> {label} </h3>
 
 
-    <h1>{data}</h1>
+    <h1 style={{color: label == "ACCEPT" ? "green" : "red"}} className='single_value'>{data}</h1>
    
     
     

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { Column } from '@ant-design/plots';
 
-export const DemoArea = ({data}) => {
+export const DemoArea = ({data, label}) => {
 //   const [data, setData] = useState([]);
 
 
@@ -10,7 +10,7 @@ export const DemoArea = ({data}) => {
 
   const config = {
     data,
-    color: '#c32aff',
+    color: label == 'ACCEPT' ? 'green' : 'red',
     xField: 'interface_id',
     yField: 'count',
     xAxis: {

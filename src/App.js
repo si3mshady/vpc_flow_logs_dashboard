@@ -79,7 +79,7 @@ const getSingleAccept = async () => {
     
   <div className='graph'> 
 
-  <DemoArea data={accept}/>
+  <DemoArea data={accept} label={"ACCEPT"}/>
     <Count data={single_accept} label={"ACCEPT"} />
   
 
@@ -87,7 +87,7 @@ const getSingleAccept = async () => {
 
 
   <div className='graph'>
-  <DemoArea data={denied}/>
+  <DemoArea data={denied} label={"REJECT"}/>
     <Count data={single_deny} label={"REJECT"}/>
 
   </div>
